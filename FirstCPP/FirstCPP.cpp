@@ -1,8 +1,66 @@
-// FirstCPP.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+using namespace std;
+#include <vector>
+#include <string>
 #include <iostream>
-
+class Person {
+protected:
+    std::string name;
+public:
+    Person(std::string name) : name(name) {}
+    virtual void orderFlowers(Florist* florist, Person* person, std::vector< std::string >) = 0;
+    virtual void acceptFlowers(FlowersBouquet* flowersBouquet) = 0;
+};
+class Florist : public Person {
+public:
+    WholeSaler* wholeSaler;
+    FlowerArranger* flowerArranger;
+    DeliveryPerson* deliveryPerson;
+    Florist(std::string name, WholeSaler* wholeSaler, FlowerArranger* flowerArranger, DeliveryPerson* deliveryPerson) :
+        Person(name),
+        wholeSaler(wholeSaler),
+        flowerArranger(flowerArranger),
+        deliveryPerson(deliveryPerson){}
+    void acceptOrder(Person* person, std::vector<std::string>) {}
+};
+class WholeSaler : public Person {
+public:
+    WholeSaler(std :: string name, Grower* grower) :
+        Person(name),
+        grower(grower)
+    {}
+    Grower* grower;
+    void acceptOrder(Person* person, std::vector<std::string>) {}
+};
+class Grower : public Person {
+public:
+    Gardner* gardner;
+    Grower(std::string name, Gardner* gardner) :
+        Person(name),
+        gardner(gardner)
+    {}
+    FlowersBouquet* prepareOrder(std::vector<std::string>) {}
+};
+class Gardner : public Person {
+public:
+    Gardner(std::string name) : Person(name) {}
+    FlowersBouquet* prepareOrder(std::vector<std::string>) {}
+};
+class FlowerArranger : public Person {
+public:
+    FlowerArranger(std::string name) : Person(name) {}
+    void arrangeFlowers(FlowersBouquet* flowerBouquet) {}
+};
+class DeliveryPerson : public Person {
+public:
+    DeliveryPerson(std::string name) : Person(name) {}
+    void deliver(Person* person, FlowersBouquet* flowerBouquet) {}
+};
+class FlowersBouquet {
+public:
+    std::vector<std::string> bouquet;
+    bool isArranged;
+    void arrange() {}
+};
 int main()
 {
     std::cout << "Hello World!\n";
