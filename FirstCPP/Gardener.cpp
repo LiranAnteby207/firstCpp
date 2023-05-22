@@ -6,7 +6,7 @@ Gardener::Gardener(std::string name): Person("Gardener " + name)
 
 FlowersBouquet* Gardener::prepareBouquet(std::vector<std::string> flowers)
 {
-	std::cout << getName() << "prepares flowers." << std::endl;
-	FlowersBouquet fb = FlowersBouquet(flowers);
-	return fb*;
+	std::cout << getName() << " prepares flowers. " << std::endl;
+	FlowersBouquet* fb = new FlowersBouquet(flowers);
+	return fb;
 }

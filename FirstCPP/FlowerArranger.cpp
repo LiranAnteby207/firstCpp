@@ -6,7 +6,6 @@ FlowerArranger::FlowerArranger(std::string name): Person("FlowerArranger " + nam
 
 void FlowerArranger::arrangeFlowers(FlowersBouquet* fb)
 {
-	std::cout << getName() << "arrnges flowers." << std::endl;
+	std::cout << getName() << " arranges flowers. " << std::endl;
 	fb->arrange();
-	fb->to_string();
 }

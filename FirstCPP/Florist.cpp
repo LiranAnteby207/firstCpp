@@ -13,7 +13,7 @@ void Florist::acceptOrder(Person* p, std::vector<std::string> v)
 	fa->arrangeFlowers(fb);
 	std::cout << fa->getName() << " returns arranged flowers to " << getName() << "." << std::endl;
 	std::cout << getName() << " forwards flowers to " << dp->getName() << "." << std::endl;
-	dp->acceptFlowers(fb);
+	dp->deliver(p,fb);
 }
 
 std::string Florist::getName()

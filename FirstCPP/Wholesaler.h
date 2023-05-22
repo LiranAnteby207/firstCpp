@@ -8,6 +8,5 @@ protected:
 public:
 	Wholesaler(std::string, Grower*);
 	FlowersBouquet* acceptOrder(std::vector<std::string>);
-	std::string getName();
 };
 

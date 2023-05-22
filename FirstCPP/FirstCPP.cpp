@@ -4,17 +4,24 @@ using namespace std;
 #include <iostream>
 #include "Person.h"
 #include "Florist.h"
+#include "Gardener.h"
+#include "DeliveryPerson.h"
+#include "FlowerArranger.h"
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
     Person* p1 = new Person("Chris");
-    Grower* g = new Grower("Gray");
-    Wholesaler* ws = new Wholesaler("Watson");
-    std::cout << p1->getName() + "\n";
-    Florist* f = new Florist("fred");
-    std::vector<std::string> order = { "a","b","c" };
-    p1->orderFlowers(f, p1, order);
+    Person* p2 = new Person("Robin");
+    Gardener* gar = new Gardener("Garett");
+    Grower* g = new Grower("Gray",gar);
+    DeliveryPerson* dp = new DeliveryPerson("dylan");
+    FlowerArranger* fa = new FlowerArranger("Flora");
+    Wholesaler* ws = new Wholesaler("Watson",g);
+    Florist* f = new Florist("fred",ws,fa,dp);
+    std::vector<std::string> order = { "Roses","Violets","Gladiolus" };
+    p1->orderFlowers(f, p2, order);
     delete p1;
     delete f;
+    delete p2;
 }
