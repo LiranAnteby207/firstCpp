@@ -8,7 +8,9 @@ using namespace std;
 int main()
 {
     std::cout << "Hello World!\n";
-    Person* p1 = new Person("liran");
+    Person* p1 = new Person("Chris");
+    Grower* g = new Grower("Gray");
+    Wholesaler* ws = new Wholesaler("Watson");
     std::cout << p1->getName() + "\n";
     Florist* f = new Florist("fred");
     std::vector<std::string> order = { "a","b","c" };
