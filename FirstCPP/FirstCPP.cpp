@@ -21,7 +21,7 @@ int main()
     Florist* f = new Florist("fred",ws,fa,dp);
     std::vector<std::string> order = { "Roses","Violets","Gladiolus" };
     p1->orderFlowers(f, p2, order);
-    delete p1;
-    delete f;
-    delete p2;
+    delete p1;delete gar; delete g;
+    delete f;delete dp;delete fa;
+    delete p2;delete ws;
 }
